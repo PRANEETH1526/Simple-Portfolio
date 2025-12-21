@@ -156,6 +156,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 1px solid transparent;
+            text-align: center;
         }
 
         .project-card:hover { 
@@ -164,22 +165,21 @@
             border-color: var(--primary);
         }
 
-        /* Icon Container (Visible on Home Page) */
-        .project-icon-wrapper {
-            height: 160px;
+        /* Icon Only Header for Project Card */
+        .project-icon-header {
+            height: 140px;
             background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
-        .project-icon-wrapper i {
+
+        .project-icon-header i {
             font-size: 4rem;
             color: var(--primary);
-            opacity: 0.9;
         }
 
-        .project-info { padding: 1.5rem; }
+        .project-info { padding: 1.5rem; text-align: left; }
         .project-info h3 { margin-top: 0; color: var(--dark); }
         .project-info p { color: var(--gray); font-size: 0.95rem; }
         
@@ -191,6 +191,83 @@
             display: block;
         }
 
+        /* Modal (Popup) Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto; 
+            padding: 0;
+            border-radius: 16px;
+            width: 90%; 
+            max-width: 900px;
+            position: relative;
+            animation: slideIn 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 { margin: 0; color: var(--primary); }
+
+        .modal-body { padding: 2rem; }
+        
+        /* Modal Image Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .img-wrapper {
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .img-wrapper h4 { margin: 0 0 10px 0; color: var(--gray); font-size: 0.9rem; }
+
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover { color: black; }
+
+        @media (max-width: 768px) {
+            .image-gallery { grid-template-columns: 1fr; }
+        }
+
         /* Contact Section */
         .contact {
             background: var(--dark);
@@ -199,16 +276,13 @@
             padding-bottom: 6rem;
         }
         
-        .contact p { color: #cbd5e1; }
-
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
-            flex-wrap: wrap;
         }
-
+        
         .whatsapp-btn {
             background-color: var(--whatsapp);
             color: white;
@@ -221,87 +295,10 @@
             gap: 10px;
             transition: background 0.3s;
         }
-
         .whatsapp-btn:hover { background-color: #1ebc57; }
-        
-        /* Modal (Popup) Styles */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto; 
-            padding: 0;
-            border-radius: 16px;
-            width: 90%; 
-            max-width: 600px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            position: relative;
-            overflow: hidden;
-            animation: slideIn 0.3s;
-        }
-
-        /* Modal Image Styling */
-        .modal-img-wrapper {
-            width: 100%;
-            height: auto;
-            max-height: 350px;
-            overflow: hidden;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Ensures the whole screenshot is visible */
-        }
-
-        .modal-body { padding: 2rem; }
-        .modal-body h2 { margin-top: 0; color: var(--primary); }
-        .modal-body h4 { color: var(--dark); margin-bottom: 0.5rem; }
-        .modal-body p { color: var(--gray); line-height: 1.8; margin-top: 0.5rem; }
-
-        .close {
-            color: white;
-            background: rgba(0,0,0,0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-size: 24px;
-            font-weight: bold;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            cursor: pointer;
-            transition: background 0.2s;
-            z-index: 10;
-        }
-
-        .close:hover { background: rgba(0,0,0,0.8); }
 
         @keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
         @keyframes slideIn { from {transform: translateY(50px)} to {transform: translateY(0)} }
-        
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-        }
     </style>
 </head>
 <body>
@@ -337,67 +334,67 @@
 
     <section class="section" id="projects">
         <h2 class="section-title">My Projects</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: #64748b;">Click on a project to view the screenshot and details.</p>
+        <p style="text-align: center; margin-bottom: 2rem; color: #64748b;">Click on a project to view App UI and Code.</p>
         
         <div class="projects-grid">
             
             <!-- Project 1: LLM Desk -->
             <div class="project-card" onclick="openModal('llm')">
-                <div class="project-icon-wrapper">
-                    <!-- ICON SHOWN ON HOME PAGE -->
+                <div class="project-icon-header">
                     <i class="fa-solid fa-robot"></i>
                 </div>
                 <div class="project-info">
                     <h3>LLM Desk (Flutter App)</h3>
                     <p>A multi-AI response aggregator connecting Gemini, ChatGPT, and Grok.</p>
-                    <span class="click-hint">View Details &rarr;</span>
+                    <span class="click-hint">View App & Code &rarr;</span>
                 </div>
                 
-                <!-- Hidden Detail Content -->
-                <div id="desc-llm" style="display:none;">
-                    <h2>LLM Desk - AI Aggregator</h2>
-                    <p>This application serves as a centralized hub for Large Language Models. As shown in the screenshot, users can select tasks like "Essay Writing" or "Coding" and receive simultaneous responses from OpenAI, Google Gemini, and xAI.</p>
-                    <p><strong>Tech Stack:</strong> Flutter, Dart, REST APIs, Provider.</p>
+                <!-- Hidden Data for Modal -->
+                <div id="data-llm" style="display:none;">
+                    <div class="desc">
+                        <p><strong>Overview:</strong> A centralized hub for Large Language Models. Users can select tasks like "Essay Writing" or "Coding" and get simultaneous responses from multiple AI agents.</p>
+                        <p><strong>Tech Stack:</strong> Flutter, Dart, REST APIs, Provider.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Project 2: Shopping App -->
             <div class="project-card" onclick="openModal('shop')">
-                <div class="project-icon-wrapper">
-                    <!-- ICON SHOWN ON HOME PAGE -->
+                <div class="project-icon-header">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
                 <div class="project-info">
                     <h3>E-Commerce Shoe App</h3>
-                    <p>A clean, user-friendly shopping interface for browsing footwear collections.</p>
-                    <span class="click-hint">View Details &rarr;</span>
+                    <p>A clean, user-friendly shopping interface for browsing footwear.</p>
+                    <span class="click-hint">View App & Code &rarr;</span>
                 </div>
 
-                <!-- Hidden Detail Content -->
-                <div id="desc-shop" style="display:none;">
-                    <h2>Shoes Collection App</h2>
-                    <p>A dedicated e-commerce mobile application designed for footwear enthusiasts. The UI features brand filtering (Adidas, Nike, Puma), detailed product views with pricing, and a smooth "Add to Cart" experience.</p>
-                    <p><strong>Tech Stack:</strong> Flutter, Material Design, Provider.</p>
+                <!-- Hidden Data for Modal -->
+                <div id="data-shop" style="display:none;">
+                    <div class="desc">
+                        <p><strong>Overview:</strong> A dedicated e-commerce app for footwear enthusiasts. Features brand filtering (Nike, Adidas), detailed product views, size selection, and a smooth cart checkout flow.</p>
+                        <p><strong>Tech Stack:</strong> Flutter, Material Design, Provider.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Project 3: Weather App -->
             <div class="project-card" onclick="openModal('weather')">
-                <div class="project-icon-wrapper">
-                    <!-- ICON SHOWN ON HOME PAGE -->
+                <div class="project-icon-header">
                     <i class="fa-solid fa-cloud-sun-rain"></i>
                 </div>
                 <div class="project-info">
                     <h3>Real-time Weather App</h3>
-                    <p>Live weather tracking with hourly forecasts and detailed metrics.</p>
-                    <span class="click-hint">View Details &rarr;</span>
+                    <p>Live weather tracking with hourly forecasts and metrics.</p>
+                    <span class="click-hint">View App & Code &rarr;</span>
                 </div>
 
-                <!-- Hidden Detail Content -->
-                <div id="desc-weather" style="display:none;">
-                    <h2>Real-time Weather Application</h2>
-                    <p>A sleek, dark-themed weather application. It tracks current temperature, humidity, and wind speed based on GPS location, while offering scrollable hourly forecasts for the day ahead.</p>
-                    <p><strong>Tech Stack:</strong> Flutter, API Integration, Geolocator.</p>
+                <!-- Hidden Data for Modal -->
+                <div id="data-weather" style="display:none;">
+                    <div class="desc">
+                        <p><strong>Overview:</strong> A sleek dark-themed weather app. It fetches real-time data using OpenWeatherMap API and displays temperature, humidity, wind speed, and hourly forecasts.</p>
+                        <p><strong>Tech Stack:</strong> Flutter, API Integration, Geolocator.</p>
+                    </div>
                 </div>
             </div>
 
@@ -407,15 +404,26 @@
     <!-- Modal Structure -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            
-            <!-- Image Area (Loads when clicked) -->
-            <div class="modal-img-wrapper">
-                <img id="modalImg" src="" alt="Project Screenshot">
+            <div class="modal-header">
+                <h2 id="modalTitle">Project Name</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
             </div>
             
-            <div class="modal-body" id="modalBody">
-                <!-- Content injected via JS -->
+            <div class="modal-body">
+                <!-- Two Images Side by Side -->
+                <div class="image-gallery">
+                    <div class="img-wrapper">
+                        <h4>App Interface</h4>
+                        <img id="imgUI" src="" alt="App UI">
+                    </div>
+                    <div class="img-wrapper">
+                        <h4>Source Code</h4>
+                        <img id="imgCode" src="" alt="Source Code">
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <div id="modalDesc"></div>
             </div>
         </div>
     </div>
@@ -439,26 +447,42 @@
     <script>
         // Modal Logic
         const modal = document.getElementById("projectModal");
-        const modalBody = document.getElementById("modalBody");
-        const modalImg = document.getElementById("modalImg");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const imgUI = document.getElementById("imgUI");
+        const imgCode = document.getElementById("imgCode");
 
-        // Map project IDs to the image file names
-        // Ensure these files exist in your folder
-        const projectImages = {
-            'llm': 'llm_desk.png',
-            'shop': 'shopping_app.png',
-            'weather': 'weather_app.png'
+        // Configuration mapping
+        const projectConfig = {
+            'llm': {
+                title: 'LLM Desk (Flutter App)',
+                uiImage: 'llm_ui.png',
+                codeImage: 'llm_code.png'
+            },
+            'shop': {
+                title: 'E-Commerce Shoe App',
+                uiImage: 'shop_ui.png',
+                codeImage: 'shop_code.png'
+            },
+            'weather': {
+                title: 'Real-time Weather App',
+                uiImage: 'weather_ui.png',
+                codeImage: 'weather_code.png'
+            }
         };
 
         function openModal(projectId) {
-            const contentDiv = document.getElementById('desc-' + projectId);
-            if(contentDiv) {
-                // Set text content
-                modalBody.innerHTML = contentDiv.innerHTML;
+            const dataDiv = document.getElementById('data-' + projectId);
+            const config = projectConfig[projectId];
+
+            if(dataDiv && config) {
+                // Set Text
+                modalTitle.innerText = config.title;
+                modalDesc.innerHTML = dataDiv.querySelector('.desc').innerHTML;
                 
-                // Set Image Source
-                // If the image file isn't found, it will show the alt text
-                modalImg.src = projectImages[projectId];
+                // Set Images
+                imgUI.src = config.uiImage;
+                imgCode.src = config.codeImage;
                 
                 // Show Modal
                 modal.style.display = "block";
