@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Praneeth Shetty - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Modern Portfolio Styles --- */
         :root {
-            --primary: #2563eb; /* Professional Blue */
+            --primary: #2563eb; 
             --dark: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
+            --whatsapp: #25D366;
         }
 
         body {
@@ -46,7 +48,7 @@
 
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section (Introduction) */
+        /* Hero Section */
         header {
             padding: 6rem 10%;
             background: white;
@@ -59,14 +61,12 @@
             color: var(--dark);
         }
 
-        header span {
-            color: var(--primary);
-        }
+        header span { color: var(--primary); }
 
         header p {
             font-size: 1.25rem;
             color: var(--gray);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 2rem auto;
         }
 
@@ -81,10 +81,7 @@
         }
 
         /* Skills Section */
-        .section {
-            padding: 4rem 10%;
-        }
-
+        .section { padding: 4rem 10%; }
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
@@ -122,30 +119,64 @@
             transition: transform 0.2s;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
+        .project-card:hover { transform: translateY(-5px); }
+        .project-info { padding: 1.5rem; }
         .project-info h3 { margin-top: 0; }
         
-        /* Contact Section */
+        /* Video Embed Style */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 1rem;
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Contact Section & WhatsApp */
         .contact {
             background: var(--dark);
             color: white;
             text-align: center;
         }
         
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .whatsapp-btn {
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover { background-color: #1ebc57; }
         .contact a { color: #93c5fd; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">MyPortfolio</div>
+        <div class="nav-logo">Praneeth.Dev</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -154,50 +185,64 @@
     </nav>
 
     <header id="about">
-        <h1>Hi, I'm <span>[Your Name]</span></h1>
-        <p>A passionate developer building web applications and AI solutions.</p>
+        <h1>Hi, I'm <span>Praneeth Shetty</span></h1>
+        <p>Dedicated Robotics and AI student with skills in app development, programming, and machine learning.</p>
         <a href="#contact" class="btn">Contact Me</a>
     </header>
 
     <section class="section" id="skills">
         <h2 class="section-title">Technical Skills</h2>
         <div class="skills-grid">
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">HTML & CSS</div>
+            <div class="skill-tag">Flutter & Dart</div>
+            <div class="skill-tag">Python & Java</div>
+            <div class="skill-tag">Robotics (ROS)</div>
+            <div class="skill-tag">Fusion 360 (CAD)</div>
+            <div class="skill-tag">Android Studio</div>
             <div class="skill-tag">Machine Learning</div>
-            <div class="skill-tag">React</div>
-            <div class="skill-tag">Git</div>
+            <div class="skill-tag">MATLAB</div>
         </div>
     </section>
 
     <section class="section" id="projects">
         <h2 class="section-title">My Projects</h2>
         <div class="projects-grid">
+            
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Portfolio Website</h3>
-                    <p>A clean, responsive personal website built with HTML and CSS.</p>
-                </div>
+                    <h3>LLM Desk (Flutter App)</h3>
+                    <p>A multi-AI response aggregator that sends user questions to Gemini, ChatGPT, and Grok simultaneously.</p>
+                    
+                    </div>
             </div>
+
             <div class="project-card">
                 <div class="project-info">
-                    <h3>AI Chatbot Integration</h3>
-                    <p>integrated Google Gemini API into a web application to answer questions.</p>
+                    <h3>Infrastructure Evaluation</h3>
+                    <p>Analyzed power consumption patterns at NMAMIT campus to identify energy inefficiencies.</p>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Data Analysis Tool</h3>
-                    <p>A Python script running in Google Colab to analyze sales data.</p>
+                    <h3>Real-time Weather App</h3>
+                    <p>Mobile application built to fetch and display live weather data using REST APIs.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
     <section class="section contact" id="contact">
         <h2>Let's Work Together</h2>
-        <p>Email me at: <a href="mailto:email@example.com">email@example.com</a></p>
+        <p>Feel free to reach out for collaborations or projects.</p>
+        
+        <div class="contact-links">
+            <a href="mailto:praneethshetty505@gmail.com" class="btn" style="background: #444;">Email Me</a>
+            
+            <a href="https://wa.me/919353285242" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
     </section>
 
 </body>
